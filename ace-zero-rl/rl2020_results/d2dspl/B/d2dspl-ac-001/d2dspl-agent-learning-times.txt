@@ -1,0 +1,20 @@
+Creating classifier rl2020_results/d2dspl/B/d2dspl-ac-001/d2dspl-buffer-01-00050000.p took 111.103971 seconds
+Trial 1 took 33514.129925 seconds, including 111.103971 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/B/d2dspl-ac-001/d2dspl-buffer-05-00050000.p took 175.265428 seconds
+Trial 5 took 34254.410481 seconds, including 175.265428 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/B/d2dspl-ac-001/d2dspl-buffer-04-00050000.p took 307.670144 seconds
+Trial 4 took 34435.528441 seconds, including 307.670144 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/B/d2dspl-ac-001/d2dspl-buffer-07-00050000.p took 131.582737 seconds
+Trial 7 took 34791.14353 seconds, including 131.582737 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/B/d2dspl-ac-001/d2dspl-buffer-06-00050000.p took 192.954454 seconds
+Trial 6 took 35845.907223 seconds, including 192.954454 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/B/d2dspl-ac-001/d2dspl-buffer-03-00050000.p took 103.610869 seconds
+Trial 3 took 37451.999946 seconds, including 103.610869 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/B/d2dspl-ac-001/d2dspl-buffer-09-00050000.p took 104.632594 seconds
+Trial 9 took 38559.639537 seconds, including 104.632594 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/B/d2dspl-ac-001/d2dspl-buffer-00-00050000.p took 70.89357 seconds
+Trial 0 took 40100.684375 seconds, including 70.89357 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/B/d2dspl-ac-001/d2dspl-buffer-08-00050000.p took 363.388219 seconds
+Trial 8 took 40983.658581 seconds, including 363.388219 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/B/d2dspl-ac-001/d2dspl-buffer-02-00050000.p took 118.619192 seconds
+Trial 2 took 42917.487874 seconds, including 118.619192 seconds for training all classifiers
