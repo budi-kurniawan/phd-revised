@@ -1,0 +1,20 @@
+Creating classifier rl2020_results/d2dspl/C/d2dspl-ac-001/d2dspl-buffer-05-00050000.p took 135.676638 seconds
+Trial 5 took 32529.919437 seconds, including 135.676638 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/C/d2dspl-ac-001/d2dspl-buffer-02-00050000.p took 149.457773 seconds
+Trial 2 took 33416.89878 seconds, including 149.457773 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/C/d2dspl-ac-001/d2dspl-buffer-00-00050000.p took 55.059918 seconds
+Trial 0 took 33582.561021 seconds, including 55.059918 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/C/d2dspl-ac-001/d2dspl-buffer-09-00050000.p took 89.060157 seconds
+Trial 9 took 33836.912569 seconds, including 89.060157 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/C/d2dspl-ac-001/d2dspl-buffer-07-00050000.p took 81.880461 seconds
+Trial 7 took 33932.962589 seconds, including 81.880461 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/C/d2dspl-ac-001/d2dspl-buffer-01-00050000.p took 76.135584 seconds
+Trial 1 took 34202.82658 seconds, including 76.135584 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/C/d2dspl-ac-001/d2dspl-buffer-06-00050000.p took 141.60796 seconds
+Trial 6 took 37127.516347 seconds, including 141.60796 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/C/d2dspl-ac-001/d2dspl-buffer-04-00050000.p took 374.084666 seconds
+Trial 4 took 38016.27434 seconds, including 374.084666 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/C/d2dspl-ac-001/d2dspl-buffer-08-00050000.p took 232.694665 seconds
+Trial 8 took 38792.220604 seconds, including 232.694665 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/C/d2dspl-ac-001/d2dspl-buffer-03-00050000.p took 68.448565 seconds
+Trial 3 took 39578.871531 seconds, including 68.448565 seconds for training all classifiers
