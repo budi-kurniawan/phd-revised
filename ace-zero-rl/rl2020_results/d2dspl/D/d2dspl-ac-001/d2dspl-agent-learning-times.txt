@@ -1,0 +1,20 @@
+Creating classifier rl2020_results/d2dspl/D/d2dspl-ac-001/d2dspl-buffer-00-00050000.p took 41.624769 seconds
+Trial 0 took 32997.003428 seconds, including 41.624769 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/D/d2dspl-ac-001/d2dspl-buffer-02-00050000.p took 62.208365 seconds
+Trial 2 took 33297.303271 seconds, including 62.208365 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/D/d2dspl-ac-001/d2dspl-buffer-01-00050000.p took 58.942312 seconds
+Trial 1 took 33629.661791 seconds, including 58.942312 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/D/d2dspl-ac-001/d2dspl-buffer-05-00050000.p took 101.595661 seconds
+Trial 5 took 34701.475969 seconds, including 101.595661 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/D/d2dspl-ac-001/d2dspl-buffer-09-00050000.p took 81.60723 seconds
+Trial 9 took 35267.29996 seconds, including 81.60723 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/D/d2dspl-ac-001/d2dspl-buffer-07-00050000.p took 88.257391 seconds
+Trial 7 took 35443.33359 seconds, including 88.257391 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/D/d2dspl-ac-001/d2dspl-buffer-04-00050000.p took 184.338403 seconds
+Trial 4 took 32024.993552 seconds, including 184.338403 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/D/d2dspl-ac-001/d2dspl-buffer-06-00050000.p took 72.239967 seconds
+Trial 6 took 32180.364714 seconds, including 72.239967 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/D/d2dspl-ac-001/d2dspl-buffer-08-00050000.p took 79.975885 seconds
+Trial 8 took 34167.311611 seconds, including 79.975885 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/D/d2dspl-ac-001/d2dspl-buffer-03-00050000.p took 114.529882 seconds
+Trial 3 took 36851.383043 seconds, including 114.529882 seconds for training all classifiers
