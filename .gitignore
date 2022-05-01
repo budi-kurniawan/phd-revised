@@ -1,0 +1,3 @@
+*.pyc
+ace_zero_core/*
+.vscode/
