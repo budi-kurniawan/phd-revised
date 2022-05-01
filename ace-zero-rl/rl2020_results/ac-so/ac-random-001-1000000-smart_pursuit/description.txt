@@ -1,0 +1,3 @@
+blue: Actor-critic with traces agent
+red: Smart pursuit agent
+1000,000 episodes
