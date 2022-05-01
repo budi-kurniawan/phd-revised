@@ -1,0 +1,10 @@
+Trial 0 & 46 & 98\\
+Trial 1 & 50 & 94\\
+Trial 2 & 48 & 96\\
+Trial 3 & 72 & 72\\
+Trial 4 & 49 & 95\\
+Trial 5 & 42 & 102\\
+Trial 6 & 88 & 56\\
+Trial 7 & 62 & 82\\
+Trial 8 & 38 & 106\\
+Trial 9 & 73 & 71\\
