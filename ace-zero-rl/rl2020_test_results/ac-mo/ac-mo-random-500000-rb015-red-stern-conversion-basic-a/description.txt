@@ -1,0 +1,3 @@
+ac-mo-random-500000-rb015 vs red_stern-conversion (Basic A)
+Learning started at 2021-08-25 13:17:43.880586
+Learning finished at 2021-08-25 13:19:12.099336
