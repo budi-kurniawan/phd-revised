@@ -1,0 +1,10 @@
+Trial 0 & 17 & 127\\
+Trial 1 & 0 & 144\\
+Trial 2 & 0 & 144\\
+Trial 3 & 0 & 144\\
+Trial 4 & 3 & 141\\
+Trial 5 & 0 & 144\\
+Trial 6 & 0 & 144\\
+Trial 7 & 3 & 141\\
+Trial 8 & 1 & 143\\
+Trial 9 & 0 & 144\\
