@@ -1,0 +1,34 @@
+\begin{table}
+\centering
+\begin{tabular}{ |l|r|r|r| }
+\hline
+Agent & Mean & Median & Standard Deviation\\
+\hline
+dqn-001-20K & 6.52 & 6.63 & 0.75\\
+dqn-002-20K & 6.64 & 6.47 & 0.98\\
+dqn-003-20K & 6.80 & 6.68 & 0.73\\
+dqn-004-20K & 6.87 & 6.86 & 0.35\\
+dqn-005-20K & 6.88 & 6.85 & 0.35\\
+dqn-random-20K & 7.10 & 7.10 & 0.02\\
+dqn-wtn-001-20K & 6.21 & 5.39 & 1.45\\
+dqn-wtn-002-20K & 6.56 & 5.91 & 1.27\\
+dqn-wtn-003-20K & 5.85 & 6.00 & 0.28\\
+dqn-wtn-004-20K & 5.92 & 5.86 & 0.09\\
+dqn-wtn-005-20K & 6.03 & 6.02 & 0.05\\
+dqn-wtn-random-20K & 7.10 & 7.09 & 0.03\\
+ddqn-001-20K & 5.37 & 5.34 & 0.14\\
+ddqn-002-20K & 5.42 & 5.51 & 0.13\\
+ddqn-003-20K & 5.63 & 5.61 & 0.08\\
+ddqn-004-20K & 5.37 & 5.19 & 0.31\\
+ddqn-005-20K & 5.47 & 5.33 & 0.30\\
+ddqn-random-20K & 7.13 & 7.11 & 0.03\\
+ppo-001-20K & 4.16 & 4.17 & 0.12\\
+ppo-002-20K & 3.70 & 3.68 & 0.10\\
+ppo-003-20K & 3.95 & 4.25 & 0.70\\
+ppo-004-20K & 4.22 & 4.18 & 0.26\\
+ppo-005-20K & 4.57 & 4.55 & 0.15\\
+ppo-random-20K & 3.81 & 3.81 & 0.05\\
+\hline
+\end{tabular}\caption{DQN, DQN-wTN and double DQN learning times per episode}
+\label{tbl:dqn-learning-times-per-episode}
+\end{table}

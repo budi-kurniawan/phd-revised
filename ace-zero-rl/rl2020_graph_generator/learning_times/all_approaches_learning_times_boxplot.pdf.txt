@@ -1,0 +1,30 @@
+\begin{table}
+\centering
+\begin{tabular}{ |l|r|r|r| }
+\hline
+Agent & Mean & Median & Standard Deviation\\
+\hline
+ac-001-200K & 31.17 & 31.21 & 0.73\\
+ac-002-200K & 30.66 & 30.59 & 3.54\\
+ac-003-200K & 31.16 & 31.33 & 0.47\\
+ac-004-200K & 31.01 & 30.91 & 0.56\\
+ac-005-200K & 30.98 & 31.30 & 0.66\\
+ac-random-200K & 32.08 & 32.13 & 0.17\\
+dqn-001-20K & 36.19 & 36.81 & 4.17\\
+dqn-002-20K & 36.88 & 35.96 & 5.45\\
+dqn-003-20K & 37.76 & 37.12 & 4.03\\
+dqn-004-20K & 38.15 & 38.12 & 1.96\\
+dqn-005-20K & 38.24 & 38.06 & 1.97\\
+dqn-random-20K & 39.46 & 39.46 & 0.09\\
+d2dspl & 8.78 & 8.64 & 0.72\\
+d2dsql-random-11K & 24.68 & 24.68 & 0.16\\
+d2dsql-random-12K & 26.17 & 26.25 & 0.32\\
+d2dsql-random-13K & 27.59 & 27.65 & 0.29\\
+mo-ac-random-200K-RB004 & 35.94 & 36.06 & 2.26\\
+mo-ac-random-200K-RB005 & 37.64 & 36.81 & 3.01\\
+mo-ac-random-200K-RB006 & 37.93 & 36.86 & 3.11\\
+mo-ac-random-200K-RB007 & 38.12 & 37.10 & 2.98\\
+\hline
+\end{tabular}\caption{Learning times in hours for generating policies}
+\label{tbl:learning-times-various-policies}
+\end{table}

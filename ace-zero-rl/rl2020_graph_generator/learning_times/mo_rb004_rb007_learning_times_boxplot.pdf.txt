@@ -1,0 +1,14 @@
+\begin{table}
+\centering
+\begin{tabular}{ |l|r|r|r| }
+\hline
+Agent & Mean & Median & Standard Deviation\\
+\hline
+mo-ac-random-200K-RB004 & 35.94 & 36.06 & 2.26\\
+mo-ac-random-200K-RB005 & 37.64 & 36.81 & 3.01\\
+mo-ac-random-200K-RB006 & 37.93 & 36.86 & 3.11\\
+mo-ac-random-200K-RB007 & 38.12 & 37.10 & 2.98\\
+\hline
+\end{tabular}\caption{Learning times in hours for generating policies}
+\label{tbl:learning-times-various-policies}
+\end{table}

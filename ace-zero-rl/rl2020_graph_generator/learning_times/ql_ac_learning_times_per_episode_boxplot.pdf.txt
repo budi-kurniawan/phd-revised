@@ -1,0 +1,22 @@
+\begin{table}
+\centering
+\begin{tabular}{ |l|r|r|r| }
+\hline
+Agent & Mean & Median & Standard Deviation\\
+\hline
+ql-001-200K & 0.32 & 0.32 & 0.00\\
+ql-002-200K & 0.32 & 0.32 & 0.00\\
+ql-003-200K & 0.31 & 0.31 & 0.00\\
+ql-004-200K & 0.32 & 0.31 & 0.00\\
+ql-005-200K & 0.31 & 0.31 & 0.00\\
+ql-random-200K & 0.31 & 0.31 & 0.00\\
+ac-001-200K & 0.56 & 0.56 & 0.01\\
+ac-002-200K & 0.55 & 0.55 & 0.06\\
+ac-003-200K & 0.56 & 0.56 & 0.01\\
+ac-004-200K & 0.56 & 0.56 & 0.01\\
+ac-005-200K & 0.56 & 0.56 & 0.01\\
+ac-random-200K & 0.58 & 0.58 & 0.00\\
+\hline
+\end{tabular}\caption{Learning times in hours}
+\label{tbl:ql-ac-learning-times}
+\end{table}

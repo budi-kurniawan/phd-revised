@@ -1,0 +1,34 @@
+\begin{table}
+\centering
+\begin{tabular}{ |l|r|r|r| }
+\hline
+Agent & Mean & Median & Standard Deviation\\
+\hline
+dqn-001-20K & 36.19 & 36.81 & 4.17\\
+dqn-002-20K & 36.88 & 35.96 & 5.45\\
+dqn-003-20K & 37.76 & 37.12 & 4.03\\
+dqn-004-20K & 38.15 & 38.12 & 1.96\\
+dqn-005-20K & 38.24 & 38.06 & 1.97\\
+dqn-random-20K & 39.46 & 39.46 & 0.09\\
+dqn-wtn-001-20K & 34.48 & 29.93 & 8.08\\
+dqn-wtn-002-20K & 36.47 & 32.84 & 7.05\\
+dqn-wtn-003-20K & 32.49 & 33.31 & 1.54\\
+dqn-wtn-004-20K & 32.88 & 32.54 & 0.52\\
+dqn-wtn-005-20K & 33.52 & 33.42 & 0.28\\
+dqn-wtn-random-20K & 39.42 & 39.39 & 0.19\\
+ddqn-001-20K & 29.85 & 29.64 & 0.78\\
+ddqn-002-20K & 30.11 & 30.63 & 0.75\\
+ddqn-003-20K & 31.27 & 31.15 & 0.44\\
+ddqn-004-20K & 29.83 & 28.82 & 1.73\\
+ddqn-005-20K & 30.38 & 29.61 & 1.68\\
+ddqn-random-20K & 39.60 & 39.51 & 0.18\\
+ppo-001-20K & 23.11 & 23.14 & 0.65\\
+ppo-002-20K & 20.56 & 20.43 & 0.54\\
+ppo-003-20K & 21.95 & 23.60 & 3.88\\
+ppo-004-20K & 23.46 & 23.24 & 1.46\\
+ppo-005-20K & 25.40 & 25.29 & 0.85\\
+ppo-random-20K & 21.18 & 21.18 & 0.31\\
+\hline
+\end{tabular}\caption{DQN, DQN-wTN, double DQN and PPO learning times}
+\label{tbl:dqn-learning-times}
+\end{table}
