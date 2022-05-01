@@ -1,0 +1,3 @@
+class QCache:    data = {}    def get(self, key):        if key in self.data:            return self.data[key]        else:            q = {}            q.fromkeys(range(4000000))            self.data[key] = q            print("creating and initializing", key)            return q
+    def set(self, key, value):        self.data[key] = value
+    def set_data(self, loaded):        print("Q table loaded") #, loaded        self.data = loaded

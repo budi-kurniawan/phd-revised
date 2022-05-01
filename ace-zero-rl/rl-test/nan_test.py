@@ -1,0 +1,1 @@
+from decimal import *dict = {'a':1, 'b':1}for i in range(500):    dict['a'] = dict['a'] * 3.9print(dict)import operatorstats = {'a':1000, 'b':3000, 'c': 100, 'd':300}stats = {}if len(stats) > 0:    print(max(iter(stats.items()), key=operator.itemgetter(1))[0])

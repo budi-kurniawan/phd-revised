@@ -1,0 +1,3 @@
+__author__ = 'bkurniawan'from rlagents.rl_agent.eligibility_traces import EligibilityTracesAgentclass EligibilityTracesAgent3(EligibilityTracesAgent):    def __init__(self, params_filename=None):        super(EligibilityTracesAgent3, self).__init__()
+    actions = [ 'no_command()', 'change_speed_by_percentage(-10)', 'change_speed_by_percentage(-20)', 'change_speed_by_percentage(-50)',
+               'change_speed_by_percentage(10)', 'change_speed_by_percentage(20)', 'change_speed_by_percentage(50)']

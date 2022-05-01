@@ -1,0 +1,3 @@
+__author__ = 'bkurniawan'from rlagents.rl_agent.eligibility_traces_cql1 import EligibilityTracesCQL1Agent
+class EligibilityTracesCQL2Agent(EligibilityTracesCQL1Agent):    ### An agent implementing eligibility traces and coarse Q-learning    def __init__(self, params_filename=None):        super(EligibilityTracesCQL2Agent, self).__init__()
+    actions = ['change_speed_by_percentage(-10)', 'change_speed_by_percentage(10)']

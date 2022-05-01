@@ -1,0 +1,6 @@
+from unittest import TestCaseimport sysimport picklefrom pathlib import Path
+class RLUtilsTestCase(TestCase):#     def setUp(self):#         sys.path.insert(0, "../rl-src")# 
+#     def test_get_zone_and_speed(self):#         import rl_utils#         state = '100-2'#         zone, speed = rl_utils.get_zone_and_speed(state)#         self.assertEqual(type(zone), int, 'wrong zone type')#         self.assertEqual(type(speed), int, 'wrong speed type')#         self.assertEqual((zone, speed), (100, 2), 'Wrong zone/speed')# 
+#     def test_get_zone(self):#         import rl_utils#         state = '100-2'#         zone = rl_utils.get_zone(state)#         self.assertEqual(type(zone), int, 'wrong zone type')# 
+#     def test_get_zone_speed_degree(self):#         import rl_utils#         state = '100-2-3'#         zone, speed, degree = rl_utils.get_zone_speed_degree(state)#         self.assertEqual(type(zone), int, 'wrong zone type')#         self.assertEqual(type(speed), int, 'wrong speed type')#         self.assertEqual(type(degree), int, 'wrong degree type')#         self.assertEqual((zone, speed, degree), (100, 2, 3), 'Wrong zone/speed/degree')
+    def test_deserialize(self):        x = 104.99        print(int(round(x, -1)))        x = -104.99        print(int(round(x, -1)))        R = 2020        R = int(R / 20)        print(R)
