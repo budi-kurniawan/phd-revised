@@ -1,0 +1,1 @@
+Trial 0 finished in 31636.428619 seconds on dnnserver

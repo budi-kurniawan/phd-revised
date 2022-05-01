@@ -1,0 +1,1 @@
+Trial 0 finished in 505428.991918 seconds.

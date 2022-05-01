@@ -1,0 +1,49 @@
+=== trial 0===
+first 20000 episodes learning took 9672.940561 seconds
+second 50000.0 episodes learning took 9723.903738 seconds
+classifier learning took 0.429734 seconds
+
+=== trial 1===
+first 20000 episodes learning took 9633.283938 seconds
+second 50000.0 episodes learning took 9565.098422 seconds
+classifier learning took 0.271635 seconds
+
+=== trial 2===
+first 20000 episodes learning took 12118.795699 seconds
+second 50000.0 episodes learning took 12158.734016 seconds
+classifier learning took 3.019045 seconds
+
+=== trial 3===
+first 20000 episodes learning took 11974.349343 seconds
+second 50000.0 episodes learning took 12036.058753 seconds
+classifier learning took 0.479351 seconds
+
+=== trial 4===
+first 20000 episodes learning took 12271.944041 seconds
+second 50000.0 episodes learning took 12511.251307 seconds
+classifier learning took 0.523495 seconds
+
+=== trial 5===
+first 20000 episodes learning took 7406.173316 seconds
+second 50000.0 episodes learning took 7577.10362 seconds
+classifier learning took 0.108134 seconds
+
+=== trial 6===
+first 20000 episodes learning took 7404.660433 seconds
+second 50000.0 episodes learning took 7552.998988 seconds
+classifier learning took 0.172292 seconds
+
+=== trial 7===
+first 20000 episodes learning took 7422.880998 seconds
+second 50000.0 episodes learning took 7621.139502 seconds
+classifier learning took 0.161851 seconds
+
+=== trial 8===
+first 20000 episodes learning took 7280.726485 seconds
+second 50000.0 episodes learning took 7418.918272 seconds
+classifier learning took 0.087775 seconds
+
+=== trial 9===
+first 20000 episodes learning took 7280.59574 seconds
+second 50000.0 episodes learning took 7362.689406 seconds
+classifier learning took 0.152436 seconds

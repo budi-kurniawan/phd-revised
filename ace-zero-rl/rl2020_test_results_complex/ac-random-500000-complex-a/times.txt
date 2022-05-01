@@ -1,0 +1,4 @@
+Trial 0 finished in 4.977269 seconds.
+Trial 0 finished in 4.977269 seconds.
+Trial 0 finished in 4.484789 seconds.
+Trial 0 finished in 4.484789 seconds.

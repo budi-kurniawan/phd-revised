@@ -1,0 +1,10 @@
+Trial 0 finished in 168450.287422 seconds on ubuntu16
+Trial 1 finished in 173990.640966 seconds on ubuntu16
+Trial 2 finished in 166187.824214 seconds on ubuntu16
+Trial 3 finished in 106221.178972 seconds on dnnserver
+Trial 4 finished in 116857.979947 seconds on dnnserver
+Trial 5 finished in 117565.328472 seconds on dnnserver
+Trial 6 finished in 118975.608315 seconds on dnnserver
+Trial 7 finished in 113606.762163 seconds on dnnserver
+Trial 8 finished in 118910.528365 seconds on dnnserver
+Trial 9 finished in 111979.017524 seconds on dnnserver

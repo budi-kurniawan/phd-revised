@@ -1,0 +1,10 @@
+Trial 0 finished in 159.982473 seconds.
+Trial 1 finished in 151.974409 seconds.
+Trial 2 finished in 143.07389 seconds.
+Trial 3 finished in 141.69474 seconds.
+Trial 4 finished in 220.438246 seconds.
+Trial 5 finished in 217.413104 seconds.
+Trial 6 finished in 239.31297 seconds.
+Trial 7 finished in 214.103268 seconds.
+Trial 8 finished in 195.048882 seconds.
+Trial 9 finished in 193.17104 seconds.
