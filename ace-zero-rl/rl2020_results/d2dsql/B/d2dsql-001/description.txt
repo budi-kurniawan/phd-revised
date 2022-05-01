@@ -1,0 +1,13 @@
+d2dsql agent. training set from rl2020_results/d2dspl/B/d2dspl-ac-001/d2dspl-normalised_training_set-0x-00050000.txt
+target_loss: 0.01
+Learning started at 2020-12-28 09:12:18.316921
+Learning finished at 2020-12-29 07:26:19.664027
+Learning finished at 2020-12-29 08:53:51.561887
+Learning finished at 2020-12-29 09:14:50.900784
+Learning finished at 2020-12-29 09:19:27.457186
+Learning finished at 2020-12-29 09:51:05.345503
+Learning finished at 2020-12-29 10:31:27.225489
+Learning finished at 2020-12-29 11:18:00.517861
+Learning finished at 2020-12-29 11:21:06.272002
+Learning finished at 2020-12-29 11:56:24.800583
+Learning finished at 2020-12-29 14:10:49.552620
