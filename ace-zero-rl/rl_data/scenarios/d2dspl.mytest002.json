@@ -1,0 +1,22 @@
+{   
+    "blue": {
+        "agent_class": "rl.agent.controllable.ControllableAgent",
+        "agent_params": {
+        },
+        "initial": {
+        	"x": 0.0, "psi": 0.0
+        }
+	},
+    "red": {
+        "agent_class": "rl.agent.script.ScriptAgent",
+        "agent_params": {
+		    "steps": [
+		    	{"t":100.0, "action":"set_heading(-50)"},
+		    	{"t":300.0, "action":"set_heading(50)"}
+		    ]
+        },
+        "initial": {
+        	"x": 1300.0, "y": -5000, "psi": 0
+        }
+	}
+}

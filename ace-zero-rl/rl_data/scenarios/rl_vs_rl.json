@@ -1,0 +1,12 @@
+{
+    "blue": {
+        "agent_class": "rl.agent.controllable.ControllableAgent",
+        "agent_params": {
+        }
+	},
+    "red": {
+        "agent_class": "rl.agent.controllable.ControllableAgent",
+        "agent_params": {
+        }
+	}
+}

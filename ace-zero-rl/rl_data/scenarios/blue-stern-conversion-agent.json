@@ -1,0 +1,19 @@
+{   
+    "blue": {
+        "agent_class": "ace_zero_core.agents.fsm_agent.stern_conversion.SternConversionAgent",
+        "agent_params": {
+        },
+        "initial": {
+        	"x": 0.0, "psi": 0.0
+        }
+	},
+    "red": {
+        "agent_class": "rl.agent.script.ScriptAgent",
+        "agent_params": {
+		    "steps": []
+        },
+        "initial": {
+        	"x": 1500.0, "y": 0, "psi": 0
+        }
+	}
+}

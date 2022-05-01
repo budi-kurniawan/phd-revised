@@ -1,0 +1,31 @@
+{   
+	"blue": { 
+        "agent_class": "rl.agent.et_2d2_multiple.EligibilityTraces2D2MultipleAgent",
+        "dyn_initials": [
+        	{ "episode": 100, "initial": {"psi": 10.0 }},
+        	{ "episode": 300, "initial": {"psi": 30.0 }},
+        	{ "episode": 500, "initial": {"psi": 50.0 }},
+        	{ "episode": 700, "initial": {"psi": 70.0 }},
+        	{ "episode": 900, "initial": {"psi": 90.0 }},
+        	{ "episode": 1100, "initial": {"psi": -10.0 }},
+        	{ "episode": 1300, "initial": {"psi": -30.0 }},
+        	{ "episode": 1500, "initial": {"psi": -50.0 }},
+        	{ "episode": 1700, "initial": {"psi": -70.0 }},
+        	{ "episode": 1900, "initial": {"psi": -90.0 }}
+        ]
+	},
+    "red": {
+        "agent_class": "rl.agent.script.ScriptAgent",
+        "agent_params": {
+		    "steps": [
+		    	{"t":50.0, "action":"set_heading(10)"},
+		    	{"t":100.0, "action":"set_heading(10)"},
+		    	{"t":150.0, "action":"set_heading(-10)"},
+		    	{"t":200.0, "action":"set_heading(-10)"}
+		    ]
+        },
+        "initial": {
+        	"x": 2000.0
+        }
+	}
+}

@@ -1,0 +1,18 @@
+{
+    "blue": {
+        "agent_class": "rl.agent.controllable.ControllableAgent",
+        "agent_params": {
+        },
+        "initial": {
+        	"x": 0.0, "psi": 0.0
+        }
+	},
+    "red": {
+        "agent_class": "rl2020.env.acezero.restricted_smart_agent.restricted_pure_pursuit_agent.RestrictedPurePursuitAgent",
+        "agent_params": {
+        },
+        "initial": {
+        	"x": 1500.0, "psi": 0.0
+        }
+	}
+}

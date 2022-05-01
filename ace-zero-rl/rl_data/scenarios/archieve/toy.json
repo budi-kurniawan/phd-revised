@@ -1,0 +1,35 @@
+{"name": "simple_rl",
+    "tmin": 0.0,
+    "umpire" : {
+        "triggers" : [
+            {   "class" : "umpires.triggers.MaxTimeElapsed",
+                "parameters" : { "max_time" : 250.0 }
+            }
+        ],
+        "critics" : [
+            {
+                "class" : "umpires.critics.GunScore",
+                "parameters" : {    "name" : "Viper Gun Score",
+                                    "subject" : "viper",
+                                    "object" : "cobra",
+                                    "max_range" : 600.0,
+                                    "max_angle" : 20.0 }
+            },
+            {
+                "class" : "umpires.critics.GunScore",
+                "parameters" : {    "name" : "Cobra Gun Score",
+                                    "subject" : "cobra",
+                                    "object" : "viper",
+                                    "max_range" : 600.0,
+                                    "max_angle" : 20.0 }
+            }
+        ]
+    },
+    "dt": 0.1,
+    "blue": { "initial": "rl_data/toy_blue.json",
+             "agent_class": "rlagents.rl_agent.toy.ToyAgent",
+             "agent_parameters": ""},
+    "red": {"initial": "data/red.json",
+             "agent_class": "agents.agent.Agent",
+             "agent_parameters": "data/red_tactics.json"}
+}

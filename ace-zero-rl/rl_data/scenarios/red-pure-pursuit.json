@@ -1,0 +1,17 @@
+{   
+    "blue": {
+        "agent_class": "rl.agent.controllable.ControllableAgent",
+        "agent_params": {
+        },
+        "initial": {}
+	},
+
+    "red": {
+        "agent_class": "ace_zero_core.agents.fsm_agent.pursuit.PurePursuitAgent",
+        "agent_params": {
+        },
+        "initial": {
+        	"x": 0.0, "psi": 0.0
+        }
+	}
+}

@@ -1,0 +1,30 @@
+{   
+    "blue": {
+        "agent_class": "rl.agent.script.ScriptAgent",
+        "agent_params": {
+		    "steps": [
+		    	{"t":1.0, "action":"change_speed_by_percentage(10)"},
+		    	{"t":10.0, "action":"change_speed_by_percentage(-10)"},
+		    	{"t":50.0, "action":"set_heading(-10)"},
+		    	{"t":50.0, "action":"set_heading(-10)"},
+		    	{"t":150.0, "action":"set_heading(-10)"},
+		    	{"t":250.0, "action":"set_heading(10)"}
+		    ]
+        },
+        "initial": {
+        	"x": 0.0,
+        	"psi": 90.0
+        }
+	},
+    "red": {
+        "agent_class": "rl.agent.script.ScriptAgent",
+        "agent_params": {
+		    "steps": [
+		    ]
+        },
+        "initial": {
+        	"x": 500.0,
+        	"psi": 90.0
+        }
+	}
+}

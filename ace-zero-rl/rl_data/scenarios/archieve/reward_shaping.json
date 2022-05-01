@@ -1,0 +1,36 @@
+{"name": "simple_rl",
+    "tmin": 0.0,
+    "umpire" : {
+        "triggers" : [
+            {   "class" : "umpires.triggers.MaxTimeElapsed",
+                "parameters" : { "max_time" : 350.0 }
+            }
+        ],
+        "critics" : [
+            {
+                "class" : "umpires.critics.GunScore",
+                "parameters" : {    "name" : "Viper Gun Score",
+                                    "subject" : "viper",
+                                    "object" : "cobra",
+                                    "max_range" : 600.0,
+                                    "max_angle" : 20.0 }
+            },
+            {
+                "class" : "umpires.critics.GunScore",
+                "parameters" : {    "name" : "Cobra Gun Score",
+                                    "subject" : "cobra",
+                                    "object" : "viper",
+                                    "max_range" : 600.0,
+                                    "max_angle" : 20.0 }
+            }
+        ]
+    },
+    "dt": 0.5,
+    "blue": { "initial": "rl_data/simple_blue.json",
+             "agent_class": "rlagents.rl_agent.reward_shaping.RewardShapingAgent",
+             "agent_parameters": ""},
+    "red": {"initial": "rl_data/red2.json",
+             "agent_class_old": "agents.agent.Agent",
+             "agent_class": "rlagents.rl_agent.enemy.EnemyAgent",
+             "agent_parameters": "data/red_tactics.json"}
+}

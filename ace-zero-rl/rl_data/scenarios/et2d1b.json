@@ -1,0 +1,27 @@
+{   
+	"blue": { 
+        "agent_class": "rl.agent.et_2d1.EligibilityTraces2D1Agent",
+        "initial": {
+        	"psi": 0.0
+        }
+	},
+    "red": {
+        "agent_class": "rl.agent.script.ScriptAgent",
+        "agent_params": {
+		    "steps": [
+		    	{"t":50.0, "action":"set_heading(-10)"},
+		    	{"t":75.0, "action":"set_heading(-10)"},
+		    	{"t":100.0, "action":"set_heading(-10)"},
+		    	{"t":125.0, "action":"set_heading(-10)"},
+		    	{"t":150.0, "action":"set_heading(-10)"},
+		    	{"t":175.0, "action":"set_heading(10)"},
+		    	{"t":200.0, "action":"set_heading(10)"},
+		    	{"t":225.0, "action":"set_heading(10)"},
+		    	{"t":250.0, "action":"set_heading(10)"}
+		    ]
+        },
+        "initial": {
+        	"x": 500.0
+        }
+	}
+}
