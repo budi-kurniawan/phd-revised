@@ -1,0 +1,20 @@
+Creating classifier rl2020_results/d2dspl/I/d2dspl-ac-001/d2dspl-buffer-00-00050000.p took 30.471255 seconds
+Trial 0 took 25599.086005 seconds, including 30.471255 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/I/d2dspl-ac-001/d2dspl-buffer-01-00050000.p took 115.078134 seconds
+Trial 1 took 25880.614674 seconds, including 115.078134 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/I/d2dspl-ac-001/d2dspl-buffer-03-00050000.p took 140.712423 seconds
+Trial 3 took 26018.9766 seconds, including 140.712423 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/I/d2dspl-ac-001/d2dspl-buffer-07-00050000.p took 100.778112 seconds
+Trial 7 took 26348.834826 seconds, including 100.778112 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/I/d2dspl-ac-001/d2dspl-buffer-02-00050000.p took 225.455846 seconds
+Trial 2 took 26424.350572 seconds, including 225.455846 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/I/d2dspl-ac-001/d2dspl-buffer-09-00050000.p took 249.837235 seconds
+Trial 9 took 26728.474818 seconds, including 249.837235 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/I/d2dspl-ac-001/d2dspl-buffer-06-00050000.p took 269.469381 seconds
+Trial 6 took 22003.14061 seconds, including 269.469381 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/I/d2dspl-ac-001/d2dspl-buffer-04-00050000.p took 363.590716 seconds
+Trial 4 took 22401.250587 seconds, including 363.590716 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/I/d2dspl-ac-001/d2dspl-buffer-05-00050000.p took 346.889886 seconds
+Trial 5 took 22959.151387 seconds, including 346.889886 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl/I/d2dspl-ac-001/d2dspl-buffer-08-00050000.p took 730.666737 seconds
+Trial 8 took 23093.28692 seconds, including 730.666737 seconds for training all classifiers
