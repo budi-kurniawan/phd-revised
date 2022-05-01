@@ -1,0 +1,30 @@
+Creating classifier rl2020_results/d2dspl-ac-005/d2dspl-buffer-00-00050000.p took 369.436522 seconds
+Creating classifier rl2020_results/d2dspl-ac-005/d2dspl-buffer-00-00100000.p took 336.663272 seconds
+Trial 0 took 47368.510259 seconds, including 706.099794 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl-ac-005/d2dspl-buffer-01-00050000.p took 382.832203 seconds
+Creating classifier rl2020_results/d2dspl-ac-005/d2dspl-buffer-01-00100000.p took 282.735254 seconds
+Trial 1 took 46340.566821 seconds, including 665.567457 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl-ac-005/d2dspl-buffer-02-00050000.p took 521.814635 seconds
+Creating classifier rl2020_results/d2dspl-ac-005/d2dspl-buffer-02-00100000.p took 572.777434 seconds
+Trial 2 took 46523.793795 seconds, including 1094.5920689999998 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl-ac-005/d2dspl-buffer-03-00050000.p took 477.396064 seconds
+Creating classifier rl2020_results/d2dspl-ac-005/d2dspl-buffer-03-00100000.p took 521.868385 seconds
+Trial 3 took 46507.888267 seconds, including 999.264449 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl-ac-005/d2dspl-buffer-04-00050000.p took 453.314407 seconds
+Creating classifier rl2020_results/d2dspl-ac-005/d2dspl-buffer-04-00100000.p took 515.613489 seconds
+Trial 4 took 46022.844768 seconds, including 968.9278959999999 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl-ac-005/d2dspl-buffer-05-00050000.p took 473.280453 seconds
+Creating classifier rl2020_results/d2dspl-ac-005/d2dspl-buffer-05-00100000.p took 591.143783 seconds
+Trial 5 took 46769.914226 seconds, including 1064.424236 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl-ac-005/d2dspl-buffer-06-00050000.p took 449.577618 seconds
+Creating classifier rl2020_results/d2dspl-ac-005/d2dspl-buffer-06-00100000.p took 772.704826 seconds
+Trial 6 took 47232.046391 seconds, including 1222.282444 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl-ac-005/d2dspl-buffer-07-00050000.p took 439.408458 seconds
+Creating classifier rl2020_results/d2dspl-ac-005/d2dspl-buffer-07-00100000.p took 444.677674 seconds
+Trial 7 took 47847.150138 seconds, including 884.086132 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl-ac-005/d2dspl-buffer-08-00050000.p took 229.160973 seconds
+Creating classifier rl2020_results/d2dspl-ac-005/d2dspl-buffer-08-00100000.p took 435.09222 seconds
+Trial 8 took 46598.70257 seconds, including 664.253193 seconds for training all classifiers
+Creating classifier rl2020_results/d2dspl-ac-005/d2dspl-buffer-09-00050000.p took 379.664846 seconds
+Creating classifier rl2020_results/d2dspl-ac-005/d2dspl-buffer-09-00100000.p took 389.54952 seconds
+Trial 9 took 47675.101853 seconds, including 769.2143659999999 seconds for training all classifiers

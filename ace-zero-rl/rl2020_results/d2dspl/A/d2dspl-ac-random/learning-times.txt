@@ -1,0 +1,10 @@
+Trial 0 finished in 466053.611576 seconds on dnnserver
+Trial 1 finished in 399818.259192 seconds on dnnserver
+Trial 2 finished in 408860.612157 seconds on dnnserver
+Trial 3 finished in 422203.251181 seconds on dnnserver
+Trial 4 finished in 426875.619121 seconds on dnnserver
+Trial 5 finished in 481849.881678 seconds on dnnserver
+Trial 6 finished in 409001.263154 seconds on dnnserver
+Trial 7 finished in 486502.462184 seconds on dnnserver
+Trial 8 finished in 447670.016765 seconds on dnnserver
+Trial 9 finished in 445217.266213 seconds on dnnserver
