@@ -1,0 +1,6 @@
+Trial 0 finished in 32551.574451 seconds on dell
+Trial 1 finished in 33318.806963 seconds on dell
+Trial 2 finished in 48835.343398 seconds on dell
+Trial 3 finished in 50335.928691 seconds on dell
+Trial 4 finished in 58273.134274 seconds on dell
+Trial 5 finished in 58985.003033 seconds on dell
