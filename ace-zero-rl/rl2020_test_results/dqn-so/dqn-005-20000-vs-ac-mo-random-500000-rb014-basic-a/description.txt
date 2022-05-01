@@ -1,0 +1,3 @@
+RL vs RL. dqn-005-20000-vs-ac-mo-random-500000-rb014-basic-a
+Learning started at 2020-11-23 10:28:38.484036
+Learning finished at 2020-11-23 10:30:03.551837
