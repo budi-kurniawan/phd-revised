@@ -18,12 +18,12 @@ if __name__ == '__main__':
     result_path = p + './ac-so/ac-performance-boxplot-1.pdf'
     data_sources = [
         BehaviourDataSource(label='ac-001-200K', data_parent_path=parent + 'ac-001-200000-basic-a'),
-        # BehaviourDataSource(label='ac-002-200K', data_parent_path=parent + 'ac-002-200000-basic-a'),
-        # BehaviourDataSource(label='ac-003-200K', data_parent_path=parent + 'ac-003-200000-basic-a'),
-        # BehaviourDataSource(label='ac-004-200K', data_parent_path=parent + 'ac-004-200000-basic-a'),
-        # BehaviourDataSource(label='ac-005-200K', data_parent_path=parent + 'ac-005-200000-basic-a'),
-        # BehaviourDataSource(label='ac-random-200K', data_parent_path=parent + 'ac-random-200000-basic-a'),
-        # BehaviourDataSource(label='random-agent', data_parent_path=parent_r + 'random-agent-basic-a'),
+        BehaviourDataSource(label='ac-002-200K', data_parent_path=parent + 'ac-002-200000-basic-a'),
+        BehaviourDataSource(label='ac-003-200K', data_parent_path=parent + 'ac-003-200000-basic-a'),
+        BehaviourDataSource(label='ac-004-200K', data_parent_path=parent + 'ac-004-200000-basic-a'),
+        BehaviourDataSource(label='ac-005-200K', data_parent_path=parent + 'ac-005-200000-basic-a'),
+        BehaviourDataSource(label='ac-random-200K', data_parent_path=parent + 'ac-random-200000-basic-a'),
+        BehaviourDataSource(label='random-agent', data_parent_path=parent_r + 'random-agent-basic-a'),
         BehaviourDataSource(label='baseline', data_parent_path=parent_b + 'baseline-blue-smart-pursuit-agent-basic-a', num_trials=1)
     ]
     draw_line_charts(data_sources, result_path)

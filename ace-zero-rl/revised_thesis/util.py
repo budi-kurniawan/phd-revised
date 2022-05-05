@@ -13,22 +13,23 @@ context = {'palette': 'Blues', 'baseline_color': 'red', 'figsize': (15, 5), 'leg
 """ info about the palette: http://seaborn.pydata.org/tutorial/color_palettes.html """
 
 
-def bootstrap(x, n, repeats, seed):
+def bootstrap(x):
+    n = 5
+    repeats = 10000
+    seed = 300_000
+    random.seed(seed)
     x = np.array(x)
     sample_mean = []
     pctl25 = []
     pctl50 = []
     pctl75 = []
-    random.seed(seed)
     for i in range(repeats):
         y = random.sample(x.tolist(), n)
-        # print("y:", y)
-        avg = np.mean(y)
         sample_mean.append(np.mean(y))
-        pctl25.append(np.percentile(y, 2.5))
-        pctl50.append(np.percentile(y, 50))
-        pctl75.append(np.percentile(y, 97.5))
-    return sample_mean, pctl25, pctl50, pctl75
+        # pctl25.append(np.percentile(y, 2.5))
+        # pctl50.append(np.percentile(y, 50))
+        # pctl75.append(np.percentile(y, 97.5))
+    return sample_mean #, pctl25, pctl50, pctl75
 
 def draw_line_charts(data_sources, result_path=None):
     plt.rcParams["figure.figsize"] = context['figsize']
@@ -53,28 +54,36 @@ def draw_line_charts(data_sources, result_path=None):
                         baselines.append(sample)
                     else:
                         data.append(sample)
-    
+    # at this point, data contains all samples from all data sources, 
+    # 40 samples (10 for each behaviour) from each source * num_data_sources
     print('data:', len(data))
 
-    data_defensive = [sample['value'] for sample in data if sample['behaviour']=='defensive']
-    data_head_on = [sample['value'] for sample in data if sample['behaviour']=='head-on']
-    data_neutral = [sample['value'] for sample in data if sample['behaviour']=='neutral']
-    data_offensive = [sample['value'] for sample in data if sample['behaviour']=='offensive']
-    print('defensive:', data_defensive)
-    print('defensive mean:', np.mean(data_defensive))
-    n = 5
-    repeats = 10_000
-    seed = 300_000
-    sample_mean, pctl25, pctl50, pctl75 = bootstrap(data_defensive, n, repeats, seed)
-    print("bootstrap mean:", np.mean(sample_mean))
-    # print('head-on:', data_head_on)
-    # print('neutral:', data_neutral)
-    # print('offensive:', data_offensive)
 
+    # show mean and 95% confidence interval
+    sns.set(style="whitegrid")
+    # dataFrame = pd.DataFrame(data)
+    # sns.lineplot(data=dataFrame, x="label", y="value", hue="behaviour", ci=95)
+    #plt.show()
+
+
+    # resample with bootstrap
+    bootstrap_data = []
+    for label in legend_labels:
+        agent_data = [x for x in data if x['label']==label]
+        for behaviour in ['defensive', 'head-on', 'neutral', 'offensive']:
+            values = [x['value'] for x in agent_data if x['behaviour']==behaviour]
+            if len(values) == 0: # baseline
+                continue
+            resamples = bootstrap(values)
+            for value in resamples:
+                bootstrap_data.append({'behaviour': behaviour, 'value': value, 'label':label})
+
+    print("bootstrap_data:", len(bootstrap_data))
+    dataFrame = pd.DataFrame(bootstrap_data)
+    sns.lineplot(data=dataFrame, x="label", y="value", hue="behaviour", ci=95)
+    plt.show()
 
     return
-    sns.set(style="whitegrid")
-    dataFrame = pd.DataFrame(data)
     bplot = sns.boxplot(x="behaviour", y="value", hue="label", data=dataFrame, whis=np.inf, width=0.6, palette=context['palette'])
     handles, _ = bplot.get_legend_handles_labels()
     bplot.legend(handles, legend_labels)#    facecolors = ('orange', 'lightblue', 'lightgreen', 'green', 'lightyellow', 'lightcyan', 'yellow', 'lightpink', 'red')
