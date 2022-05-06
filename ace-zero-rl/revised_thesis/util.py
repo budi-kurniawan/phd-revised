@@ -24,7 +24,7 @@ def bootstrap(x):
     pctl50 = []
     pctl75 = []
     for i in range(repeats):
-        y = random.sample(x.tolist(), n)
+        y = random.choices(x.tolist(), k=n)
         sample_mean.append(np.mean(y))
         # pctl25.append(np.percentile(y, 2.5))
         # pctl50.append(np.percentile(y, 50))
