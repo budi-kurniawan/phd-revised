@@ -80,7 +80,7 @@ def draw_line_charts(data_sources, result_path=None):
 
     print("bootstrap_data:", len(bootstrap_data))
     dataFrame = pd.DataFrame(bootstrap_data)
-    sns.lineplot(data=dataFrame, x="label", y="value", hue="behaviour", ci=95)
+    sns.lineplot(data=dataFrame, x="label", y="value", hue="behaviour", ci=95, err_style="bars")
     plt.show()
 
     return
