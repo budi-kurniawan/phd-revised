@@ -94,3 +94,59 @@ if __name__ == '__main__':
                 vectorized=True, random_state=rng, n_resamples=resample_size)
         ci = res.confidence_interval
         print(f'ConfidenceInterval(low={ci.low:.4f}, high={ci.high:.4f})\n')
+
+"""
+original sample mean=0.2966
+My bootstrap
+===========================
+Resample size=100, mean=0.2994
+ConfidenceInterval(low=0.2332, high=0.3637)
+
+Resample size=1000, mean=0.2985
+ConfidenceInterval(low=0.2288, high=0.3671)
+
+Resample size=10000, mean=0.2970
+ConfidenceInterval(low=0.2262, high=0.3677)
+
+My bootstrap2 (num_resamples:5)
+===========================
+Resample size=100, mean=0.2994
+ConfidenceInterval(low=0.2369, high=0.3481)
+
+ci: [0.23689445 0.34805381]
+Resample size=1000, mean=0.2985
+ConfidenceInterval(low=0.2415, high=0.3575)
+
+ci: [0.24148513 0.35753209]
+Resample size=10000, mean=0.2970
+ConfidenceInterval(low=0.2411, high=0.3565)
+
+ci: [0.24112481 0.3564732 ]
+
+
+My bootstrap2 (num_resamples:10)
+===========================
+num_resamples: 10
+Resample size=100, mean=0.3016
+ConfidenceInterval(low=0.2528, high=0.3391)
+
+Resample size=1000, mean=0.2967
+ConfidenceInterval(low=0.2580, high=0.3382)
+
+Resample size=10000, mean=0.2969
+ConfidenceInterval(low=0.2570, high=0.3378)
+
+
+
+
+Scipy bootstrap with np.mean
+=====================
+Resample size=100
+ConfidenceInterval(low=0.2602, high=0.3339)
+
+Resample size=1000
+ConfidenceInterval(low=0.2548, high=0.3362)
+
+Resample size=10000
+ConfidenceInterval(low=0.2556, high=0.3382)
+"""
