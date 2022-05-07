@@ -5,7 +5,10 @@ from scipy.stats import bootstrap
 import os
 import random
 
-def my_bootstrap(x, num_resamples, iteration, seed = 300000):
+seed = 300_000
+rng = np.random.default_rng(seed)
+
+def my_bootstrap(x, num_resamples, iteration):
     # confidence level: 0.95
     random.seed(seed)
     x = np.array(x)
@@ -19,6 +22,22 @@ def my_bootstrap(x, num_resamples, iteration, seed = 300000):
         pctl_97_5.append(np.percentile(y, 97.5))
     return np.mean(resample_mean), np.mean(pctl_2_5), np.mean(pctl_97_5)
 
+def my_mean(data, axis=0):
+    mean = np.mean(data, axis=axis)
+    return mean
+
+def scipy_bootstrap(sample):
+    resample_size = 10000
+    m = None
+    def inner_mean(data, axis=0):
+        m = np.mean(data, axis=axis)
+        return m
+    res = bootstrap(sample, my_mean, confidence_level=0.95, method='percentile', 
+            random_state=rng, n_resamples=resample_size)
+    ci = res.confidence_interval
+    lower_error = m - ci.low
+    upper_error = ci.high = m
+    return m, [lower_error, upper_error]
 
 if __name__ == '__main__':
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -34,67 +53,18 @@ if __name__ == '__main__':
 
     print(f'sample mean={np.mean(sample):.4f}')
     print("My bootstrap\n===========================")
-    for resample_size in iterations:
-        mean, ci_low, ci_high = my_bootstrap(sample, num_resamples, resample_size)
-        print(f'Resample size={resample_size:n}, mean={mean:.4f}')
-        print(f'ConfidenceInterval(low={ci_low:.4f}, high={ci_high:.4f})\n')
+    # for resample_size in iterations:
+    #     mean, ci_low, ci_high = my_bootstrap(sample, num_resamples, resample_size)
+    #     print(f'Resample size={resample_size:n}, mean={mean:.4f}')
+    #     print(f'ConfidenceInterval(low={ci_low:.4f}, high={ci_high:.4f})\n')
 
 
     print("\n\n\nScipy bootstrap with np.mean\n=====================")
-    rng = np.random.default_rng()
+    rng = np.random.default_rng(seed)
     sample = (sample,)  # samples must be in a sequence
     for resample_size in iterations:
         print(f'Resample size={resample_size:n}')
-        res = bootstrap(sample, np.mean, confidence_level=0.95, method='basic', random_state=rng, n_resamples=resample_size)
+        res = bootstrap(sample, my_mean, confidence_level=0.95, method='percentile', 
+                vectorized=True, random_state=rng, n_resamples=resample_size)
         ci = res.confidence_interval
         print(f'ConfidenceInterval(low={ci.low:.4f}, high={ci.high:.4f})\n')
-
-
-    print("\n\n\nScipy bootstrap with np.std\n=====================")
-    for resample_size in iterations:
-        print(f'Resample size={resample_size:n}')
-        res = bootstrap(sample, np.std, confidence_level=0.95, method='basic', random_state=rng, n_resamples=resample_size)
-        ci = res.confidence_interval
-        print(f'ConfidenceInterval(low={ci.low:.4f}, high={ci.high:.4f})\n')
-
-    """ Result:
-    sample mean=0.2966
-    My bootstrap
-    ===========================
-    Resample size=100, mean=0.2994
-    ConfidenceInterval(low=0.2332, high=0.3637)
-
-    Resample size=1000, mean=0.2985
-    ConfidenceInterval(low=0.2288, high=0.3671)
-
-    Resample size=10000, mean=0.2970
-    ConfidenceInterval(low=0.2262, high=0.3677)
-
-
-
-
-    Scipy bootstrap with np.mean
-    =====================
-    Resample size=100
-    ConfidenceInterval(low=0.2580, high=0.3402)
-
-    Resample size=1000
-    ConfidenceInterval(low=0.2543, high=0.3356)
-
-    Resample size=10000
-    ConfidenceInterval(low=0.2548, high=0.3366)
-
-
-
-
-    Scipy bootstrap with np.std
-    =====================
-    Resample size=100
-    ConfidenceInterval(low=0.0510, high=0.0946)
-
-    Resample size=1000
-    ConfidenceInterval(low=0.0476, high=0.0927)
-
-    Resample size=10000
-    ConfidenceInterval(low=0.0488, high=0.0937)
-    """

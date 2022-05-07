@@ -6,31 +6,33 @@ import csv
 import os
 from collections import namedtuple
 import random
-from scipy.stats import sem
+from scipy.stats import bootstrap
+
 
 
 BehaviourDataSource = namedtuple('BehaviourDataSource', 'label data_parent_path num_trials', defaults=[None, None])
 context = {'palette': 'Blues', 'baseline_color': 'red', 'figsize': (15, 5), 'legend_loc' : "upper center"}
 """ info about the palette: http://seaborn.pydata.org/tutorial/color_palettes.html """
 
+seed = 300_000
+rng = np.random.default_rng(seed)
 
-def bootstrap(x):
-    n = 5
-    iterations = 100
-    seed = 300_000
+def my_bootstrap(x, num_resamples=5, iteration=10000):
+    # confidence level: 0.95
     random.seed(seed)
     x = np.array(x)
-    sample_mean = []
-    pctl25 = []
-    pctl50 = []
-    pctl75 = []
-    for i in range(iterations):
-        y = random.choices(x.tolist(), k=n)
-        sample_mean.append(np.mean(y))
-        # pctl25.append(np.percentile(y, 2.5))
-        # pctl50.append(np.percentile(y, 50))
-        # pctl75.append(np.percentile(y, 97.5))
-    return sample_mean #, pctl25, pctl50, pctl75
+    resample_mean = []
+    pctl_2_5 = []
+    pctl_97_5 = []
+    for i in range(iteration):
+        y = random.choices(x.tolist(), k=num_resamples)
+        resample_mean.append(np.mean(y))
+        pctl_2_5.append(np.percentile(y, 2.5))
+        pctl_97_5.append(np.percentile(y, 97.5))
+    mean = np.mean(resample_mean)
+    lower_error = mean - np.mean(pctl_2_5)
+    upper_error = np.mean(pctl_97_5) - mean
+    return np.mean(resample_mean), (lower_error, upper_error)
 
 def draw_line_charts(data_sources, result_path=None):
     plt.rcParams["figure.figsize"] = context['figsize']
@@ -68,56 +70,42 @@ def draw_line_charts(data_sources, result_path=None):
 
 
     # resample with bootstrap
-    bootstrap_data = []
+    bootstrap_defensive = []
+    x_1 = np.arange(1, 5)
+    index = 0
+    colors = ['#efffef', '#ccffe0', '#b2ffd0', '#99ffc1', '#00ff64', '#fff9b2', 'orange'] #https://www.w3schools.com/colors/colors_gradient.asp
     for label in legend_labels:
+        y = []
+        errors = []
         agent_data = [x for x in data if x['label']==label]
-        for behaviour in ['defensive', 'head-on', 'neutral', 'offensive']:
-            values = [x['value'] for x in agent_data if x['behaviour']==behaviour]
-            if len(values) == 0: # baseline
-                continue
-            resamples = bootstrap(values)
-            for value in resamples:
-                bootstrap_data.append({'behaviour': behaviour, 'value': value, 'label':label})
+        values = [x['value'] for x in agent_data if x['behaviour']=='defensive']
+        mean, error = my_bootstrap(values)
+        y.append(mean)
+        errors.append(error)
 
-    values = [x['value'] for x in data if x['behaviour']=='defensive' and x['label']=='ac-001-200K']
-    print('ac-001-200K (defensive):', values)
+        values = [x['value'] for x in agent_data if x['behaviour']=='head-on']
+        mean, error = my_bootstrap(values)
+        y.append(mean)
+        errors.append(error)
 
-    values = [x['value'] for x in data if x['behaviour']=='neutral' and x['label']=='ac-001-200K']
-    print('ac-001-200K (neutral):', values)
+        values = [x['value'] for x in agent_data if x['behaviour']=='neutral']
+        mean, error = my_bootstrap(values)
+        y.append(mean)
+        errors.append(error)
 
-    values = [x['value'] for x in data if x['behaviour']=='offensive' and x['label']=='ac-001-200K']
-    print('ac-001-200K (offensive):', values)
+        values = [x['value'] for x in agent_data if x['behaviour']=='offensive']
+        mean, error = my_bootstrap(values)
+        y.append(mean)
+        errors.append(error)
+        err_1 = np.array(errors).T
+        y = np.array(y)
+        plt.errorbar(x=x_1, y=y, yerr=err_1, color='gray', capsize=3,
+            linestyle="None", marker="s", markersize=7, mfc=colors[index], mec="black", label=label)
+        x_1 = x_1 + 0.1
+        index = index + 1
 
-    values = [x['value'] for x in data if x['behaviour']=='head-on' and x['label']=='ac-001-200K']
-    print('ac-001-200K (head-on):', values)
-
-    return
-    # values = [x['value'] for x in bootstrap_data if x['behaviour']=='defensive' and x['label']=='ac-001-200K']
-    # print("bootstrap_data:", len(values), ", sd:", np.std(values), ", sem:", sem(values))
-
-    dataFrame = pd.DataFrame(data)
-    sns.pointplot('label', 'value', hue='behaviour', data=dataFrame, dodge=False, join=False)
-    
-    dataFrame = pd.DataFrame(bootstrap_data)
-    colors = ['red', 'blue', 'green', 'orange']
-    # sns.lineplot(data=dataFrame, x="label", y="value", hue="behaviour", ci=95, err_style="bars", palette=colors)
-    dataFrame = pd.DataFrame(data)
-    sns.pointplot('label', 'value', hue='behaviour', data=dataFrame, dodge=False, join=False)
-    plt.show()
-
-    return
-    bplot = sns.boxplot(x="behaviour", y="value", hue="label", data=dataFrame, whis=np.inf, width=0.6, palette=context['palette'])
-    handles, _ = bplot.get_legend_handles_labels()
-    bplot.legend(handles, legend_labels)#    facecolors = ('orange', 'lightblue', 'lightgreen', 'green', 'lightyellow', 'lightcyan', 'yellow', 'lightpink', 'red')
-    plt.legend(loc=context['legend_loc'])
-    for i in range(len(baselines)):
-        baseline = baselines[i]
-        bplot.plot([-.4 + i, 0.4 + i], [baseline['value'], baseline['value']], linewidth=4, color=context['baseline_color'], zorder=0.5)
-    bplot.set_xlabel('Blue UAV initial disposition', fontsize=15)
-    bplot.set_ylabel('Average Reward', fontsize=15)
-    if 'ylim' in context:
-        plt.ylim(context['ylim'])
-    plt.tight_layout(pad=0.05) # will change ax dimension, make them bigger since margins are reduced        
-    if result_path is not None:
-        plt.savefig(result_path)
+    x_ticks = ('defensive', 'head-on', 'neutral', 'offensive')
+    plt.xticks(x_1, x_ticks, rotation=90)
+    plt.legend(loc='upper center')
+    plt.tight_layout()
     plt.show()

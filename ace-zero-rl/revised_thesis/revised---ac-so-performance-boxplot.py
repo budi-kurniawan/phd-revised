@@ -24,7 +24,7 @@ if __name__ == '__main__':
         BehaviourDataSource(label='ac-005-200K', data_parent_path=parent + 'ac-005-200000-basic-a'),
         BehaviourDataSource(label='ac-random-200K', data_parent_path=parent + 'ac-random-200000-basic-a'),
         BehaviourDataSource(label='random-agent', data_parent_path=parent_r + 'random-agent-basic-a'),
-        BehaviourDataSource(label='baseline', data_parent_path=parent_b + 'baseline-blue-smart-pursuit-agent-basic-a', num_trials=1)
+        # BehaviourDataSource(label='baseline', data_parent_path=parent_b + 'baseline-blue-smart-pursuit-agent-basic-a', num_trials=1)
     ]
     draw_line_charts(data_sources, result_path)
 #     data_sources = [
