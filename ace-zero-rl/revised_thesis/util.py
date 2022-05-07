@@ -6,6 +6,7 @@ import csv
 import os
 from collections import namedtuple
 import random
+from scipy.stats import sem
 
 
 BehaviourDataSource = namedtuple('BehaviourDataSource', 'label data_parent_path num_trials', defaults=[None, None])
@@ -15,7 +16,7 @@ context = {'palette': 'Blues', 'baseline_color': 'red', 'figsize': (15, 5), 'leg
 
 def bootstrap(x):
     n = 5
-    repeats = 10000
+    iterations = 100
     seed = 300_000
     random.seed(seed)
     x = np.array(x)
@@ -23,7 +24,7 @@ def bootstrap(x):
     pctl25 = []
     pctl50 = []
     pctl75 = []
-    for i in range(repeats):
+    for i in range(iterations):
         y = random.choices(x.tolist(), k=n)
         sample_mean.append(np.mean(y))
         # pctl25.append(np.percentile(y, 2.5))
@@ -56,7 +57,7 @@ def draw_line_charts(data_sources, result_path=None):
                         data.append(sample)
     # at this point, data contains all samples from all data sources, 
     # 40 samples (10 for each behaviour) from each source * num_data_sources
-    print('data:', len(data))
+
 
 
     # show mean and 95% confidence interval
@@ -78,9 +79,30 @@ def draw_line_charts(data_sources, result_path=None):
             for value in resamples:
                 bootstrap_data.append({'behaviour': behaviour, 'value': value, 'label':label})
 
-    print("bootstrap_data:", len(bootstrap_data))
+    values = [x['value'] for x in data if x['behaviour']=='defensive' and x['label']=='ac-001-200K']
+    print('ac-001-200K (defensive):', values)
+
+    values = [x['value'] for x in data if x['behaviour']=='neutral' and x['label']=='ac-001-200K']
+    print('ac-001-200K (neutral):', values)
+
+    values = [x['value'] for x in data if x['behaviour']=='offensive' and x['label']=='ac-001-200K']
+    print('ac-001-200K (offensive):', values)
+
+    values = [x['value'] for x in data if x['behaviour']=='head-on' and x['label']=='ac-001-200K']
+    print('ac-001-200K (head-on):', values)
+
+    return
+    # values = [x['value'] for x in bootstrap_data if x['behaviour']=='defensive' and x['label']=='ac-001-200K']
+    # print("bootstrap_data:", len(values), ", sd:", np.std(values), ", sem:", sem(values))
+
+    dataFrame = pd.DataFrame(data)
+    sns.pointplot('label', 'value', hue='behaviour', data=dataFrame, dodge=False, join=False)
+    
     dataFrame = pd.DataFrame(bootstrap_data)
-    sns.lineplot(data=dataFrame, x="label", y="value", hue="behaviour", ci=95, err_style="bars")
+    colors = ['red', 'blue', 'green', 'orange']
+    # sns.lineplot(data=dataFrame, x="label", y="value", hue="behaviour", ci=95, err_style="bars", palette=colors)
+    dataFrame = pd.DataFrame(data)
+    sns.pointplot('label', 'value', hue='behaviour', data=dataFrame, dodge=False, join=False)
     plt.show()
 
     return
