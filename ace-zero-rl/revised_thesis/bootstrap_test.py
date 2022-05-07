@@ -12,15 +12,27 @@ def my_bootstrap(x, num_resamples, iteration):
     # confidence level: 0.95
     random.seed(seed)
     x = np.array(x)
-    resample_mean = []
+    resample_means = []
     pctl_2_5 = []
     pctl_97_5 = []
     for i in range(iteration):
         y = random.choices(x.tolist(), k=num_resamples)
-        resample_mean.append(np.mean(y))
+        resample_means.append(np.mean(y))
         pctl_2_5.append(np.percentile(y, 2.5))
         pctl_97_5.append(np.percentile(y, 97.5))
-    return np.mean(resample_mean), np.mean(pctl_2_5), np.mean(pctl_97_5)
+    return np.mean(resample_means), np.mean(pctl_2_5), np.mean(pctl_97_5)
+
+def my_bootstrap2(x, num_resamples, iteration):
+    # inspired by https://allendowney.github.io/ElementsOfDataScience/12_bootstrap.html
+    # confidence level: 0.95
+    random.seed(seed)
+    x = np.array(x)
+    resample_means = []
+    for i in range(iteration):
+        y = random.choices(x.tolist(), k=num_resamples)
+        resample_means.append(np.mean(y))
+    ci = np.percentile(resample_means, [2.5, 97.5])
+    return np.mean(resample_means), ci
 
 def my_mean(data, axis=0):
     mean = np.mean(data, axis=axis)
@@ -51,13 +63,27 @@ if __name__ == '__main__':
     num_resamples = 5
     iterations = [100, 1000, 10000]
 
-    print(f'sample mean={np.mean(sample):.4f}')
+    print(f'original sample mean={np.mean(sample):.4f}')
     print("My bootstrap\n===========================")
-    # for resample_size in iterations:
-    #     mean, ci_low, ci_high = my_bootstrap(sample, num_resamples, resample_size)
-    #     print(f'Resample size={resample_size:n}, mean={mean:.4f}')
-    #     print(f'ConfidenceInterval(low={ci_low:.4f}, high={ci_high:.4f})\n')
+    for resample_size in iterations:
+        mean, ci_low, ci_high = my_bootstrap(sample, num_resamples, resample_size)
+        print(f'Resample size={resample_size:n}, mean={mean:.4f}')
+        print(f'ConfidenceInterval(low={ci_low:.4f}, high={ci_high:.4f})\n')
 
+    print("My bootstrap2 (num_resamples:5)\n===========================")
+    for resample_size in iterations:
+        mean, ci = my_bootstrap2(sample, num_resamples, resample_size)
+        print(f'Resample size={resample_size:n}, mean={mean:.4f}')
+        print(f'ConfidenceInterval(low={ci[0]:.4f}, high={ci[1]:.4f})\n')
+        print('ci:', ci)
+
+    print("\n\nMy bootstrap2 (num_resamples:10)\n===========================")
+    num_resamples = len(sample)
+    print('num_resamples:', num_resamples)
+    for resample_size in iterations:
+        mean, ci = my_bootstrap2(sample, num_resamples, resample_size)
+        print(f'Resample size={resample_size:n}, mean={mean:.4f}')
+        print(f'ConfidenceInterval(low={ci[0]:.4f}, high={ci[1]:.4f})\n')
 
     print("\n\n\nScipy bootstrap with np.mean\n=====================")
     rng = np.random.default_rng(seed)
