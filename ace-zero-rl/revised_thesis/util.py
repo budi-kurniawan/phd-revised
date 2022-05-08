@@ -14,6 +14,7 @@ context = {'palette': 'Blues', 'baseline_color': 'red', 'figsize': (15, 5), 'leg
 seed = 300_000
 rng = np.random.default_rng(seed)
 
+
 def my_bootstrap_with_errors(x, num_resamples=5, iteration=10000):
     # confidence level: 0.95
     random.seed(seed)
@@ -74,6 +75,7 @@ def draw_line_charts(data_sources, result_path=None):
     # 40 samples (10 for each behaviour) from each source * num_data_sources
 
     x_1 = np.arange(1, 5)
+    iteration = 100
     index = 0
     colors = ['#efffef', '#ccffe0', '#b2ffd0', '#99ffc1', '#00ff64', '#fff9b2', 'orange'] #https://www.w3schools.com/colors/colors_gradient.asp
     for label in legend_labels:
@@ -83,7 +85,7 @@ def draw_line_charts(data_sources, result_path=None):
         for behaviour in ['defensive', 'head-on', 'neutral', 'offensive']:
             values = [x['value'] for x in agent_data if x['behaviour']==behaviour]
             # resample with bootstrap
-            mean, error = my_bootstrap2_with_errors(values, 5)
+            mean, error = my_bootstrap2_with_errors(values, 5, iteration)
             y.append(mean)
             errors.append(error)
         errors = np.array(errors).T
@@ -94,6 +96,8 @@ def draw_line_charts(data_sources, result_path=None):
         index = index + 1
 
     x_ticks = ('defensive', 'head-on', 'neutral', 'offensive')
+    # adjust x_1 so it is in the middle
+    x_1 = x_1 - (len(legend_labels) + 1)* 0.05 / 2
     plt.xticks(x_1, x_ticks, rotation=90)
     plt.legend(loc='upper center')
     plt.tight_layout()

@@ -8,6 +8,27 @@ import random
 seed = 300_000
 rng = np.random.default_rng(seed)
 
+
+class ScipyBootstrap:
+    def __init__(self) -> None:
+        self.mean = None
+
+    def calculate_mean(self, sample, axis=0):
+        self.mean = np.mean(sample, axis=axis)
+        # print('self.mean:', self.mean)
+        # print('len(mean):', len(self.mean))
+        return self.mean
+
+    def execute(self, sample, resample_size, method):
+        sample = (sample,)  # samples must be in a sequence
+        res = bootstrap(sample, self.calculate_mean, confidence_level=0.95, method=method, 
+            random_state=rng, n_resamples=resample_size)
+        # print('method:', method, ', mean:' , self.mean)
+        if method == 'basic':
+            return self.mean, res
+        return np.mean(self.mean), res
+        
+
 def my_bootstrap(x, num_resamples, iteration):
     # confidence level: 0.95
     random.seed(seed)
@@ -46,10 +67,10 @@ def scipy_bootstrap(sample):
         return m
     res = bootstrap(sample, my_mean, confidence_level=0.95, method='percentile', 
             random_state=rng, n_resamples=resample_size)
-    ci = res.confidence_interval
-    lower_error = m - ci.low
-    upper_error = ci.high = m
-    return m, [lower_error, upper_error]
+    # ci = res.confidence_interval
+    # lower_error = m - ci.low
+    # upper_error = ci.high = m
+    return m, res
 
 if __name__ == '__main__':
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -85,14 +106,31 @@ if __name__ == '__main__':
         print(f'Resample size={resample_size:n}, mean={mean:.4f}')
         print(f'ConfidenceInterval(low={ci[0]:.4f}, high={ci[1]:.4f})\n')
 
-    print("\n\n\nScipy bootstrap with np.mean\n=====================")
+    print("\n\n\nScipy bootstrap (bca)\n=====================")
     rng = np.random.default_rng(seed)
-    sample = (sample,)  # samples must be in a sequence
     for resample_size in iterations:
-        print(f'Resample size={resample_size:n}')
-        res = bootstrap(sample, my_mean, confidence_level=0.95, method='percentile', 
-                vectorized=True, random_state=rng, n_resamples=resample_size)
+        b = ScipyBootstrap()
+        mean, res = b.execute(sample, resample_size, 'bca')
         ci = res.confidence_interval
+        print(f'Resample size={resample_size:n}, mean={mean:.4f}')
+        print(f'ConfidenceInterval(low={ci.low:.4f}, high={ci.high:.4f})\n')
+
+    print("\n\n\nScipy bootstrap (basic)\n=====================")
+    rng = np.random.default_rng(seed)
+    for resample_size in iterations:
+        b = ScipyBootstrap()
+        mean, res = b.execute(sample, resample_size, 'basic')
+        ci = res.confidence_interval
+        print(f'Resample size={resample_size:n}, mean={mean:.4f}')
+        print(f'ConfidenceInterval(low={ci.low:.4f}, high={ci.high:.4f})\n')
+
+    print("\n\n\nScipy bootstrap (percentile)\n=====================")
+    rng = np.random.default_rng(seed)
+    for resample_size in iterations:
+        b = ScipyBootstrap()
+        mean, res = b.execute(sample, resample_size, 'percentile')
+        ci = res.confidence_interval
+        print(f'Resample size={resample_size:n}, mean={mean:.4f}')
         print(f'ConfidenceInterval(low={ci.low:.4f}, high={ci.high:.4f})\n')
 
 """
@@ -139,14 +177,42 @@ ConfidenceInterval(low=0.2570, high=0.3378)
 
 
 
-Scipy bootstrap with np.mean
+Scipy bootstrap (bca)
 =====================
-Resample size=100
+Resample size=100, mean=0.2966
+ConfidenceInterval(low=0.2625, high=0.3375)
+
+Resample size=1000, mean=0.2966
+ConfidenceInterval(low=0.2554, high=0.3363)
+
+Resample size=10000, mean=0.2966
+ConfidenceInterval(low=0.2564, high=0.3388)
+
+
+
+
+Scipy bootstrap (basic)
+=====================
+Resample size=100, mean=0.2966
+ConfidenceInterval(low=0.2593, high=0.3330)
+
+Resample size=1000, mean=0.2966
+ConfidenceInterval(low=0.2570, high=0.3384)
+
+Resample size=10000, mean=0.2966
+ConfidenceInterval(low=0.2550, high=0.3376)
+
+
+
+
+Scipy bootstrap (percentile)
+=====================
+Resample size=100, mean=0.2955
 ConfidenceInterval(low=0.2602, high=0.3339)
 
-Resample size=1000
+Resample size=1000, mean=0.2966
 ConfidenceInterval(low=0.2548, high=0.3362)
 
-Resample size=10000
+Resample size=10000, mean=0.2965
 ConfidenceInterval(low=0.2556, high=0.3382)
 """
