@@ -14,6 +14,7 @@ context = {'palette': 'Blues', 'baseline_color': 'red', 'figsize': (15, 5), 'leg
 
 seed = 300_000
 rng = np.random.default_rng(seed)
+behaviours = ('defensive', 'head-on', 'neutral', 'offensive')
 
 class ScipyBootstrap:
     def __init__(self) -> None:
@@ -44,7 +45,8 @@ def draw_error_bars(data_sources, result_path=None):
     offset = 0.5
     for ds in data_sources:
         label = ds.label
-        legend_labels.append(label)
+        if label!='baseline':
+            legend_labels.append(label)
         for trial in range(10):
             file = ds.data_parent_path + '/values-by-behaviour-' + str(trial).zfill(2) + '.txt'
             if not os.path.exists(file):
@@ -63,7 +65,7 @@ def draw_error_bars(data_sources, result_path=None):
     # 40 samples (10 for each behaviour) from each source * num_data_sources
 
     x_1 = np.arange(1, 5)
-    iteration = 100
+    distance_btw_agents = 0.09
     index = 0
     colors = context['palette']
     for label in legend_labels:
@@ -72,21 +74,33 @@ def draw_error_bars(data_sources, result_path=None):
         agent_data = [x for x in data if x['label']==label]
         for behaviour in ['defensive', 'head-on', 'neutral', 'offensive']:
             values = [x['value'] for x in agent_data if x['behaviour']==behaviour]
-            b = ScipyBootstrap()
-            mean, error = b.execute_with_errors(values, 10000, 'bca')
+            mean, error = ScipyBootstrap().execute_with_errors(values, 10000, 'bca')
             y.append(mean)
             errors.append(error)
         errors = np.array(errors).T
         y = np.array(y)
         plt.errorbar(x=x_1, y=y, yerr=errors, color='gray', capsize=3,
             linestyle="None", marker="s", markersize=7, mfc=colors[index], mec="black", label=label)
-        x_1 = x_1 + 0.05
+        x_1 = x_1 + distance_btw_agents
         index = index + 1
 
     x_ticks = ('defensive', 'head-on', 'neutral', 'offensive')
     # adjust x_1 so it is in the middle
-    x_1 = x_1 - (len(legend_labels) + 1)* 0.05 / 2
-    plt.xticks(x_1, x_ticks, rotation=90)
+    x_1 = x_1 - (len(legend_labels) + 1)* distance_btw_agents / 2
+    plt.xticks(x_1, x_ticks, rotation=0)
     plt.legend(loc='upper center')
-    plt.tight_layout()
+
+    baseline_width = len(legend_labels) * distance_btw_agents
+    for i, behaviour in enumerate(behaviours):
+        baseline_value = [e for e in baselines if e['behaviour'] == behaviour][0]['value']
+        plt.plot([-baseline_width/2 + x_1[i], baseline_width/2 + x_1[i]], [baseline_value, baseline_value], linewidth=3, 
+            color=context['baseline_color'], zorder=0.5)
+    plt.xlabel('Blue UAV initial disposition', fontsize=12)
+    plt.ylabel('Average Reward', fontsize=12)
+    if 'ylim' in context:
+        plt.ylim(context['ylim'])
+    plt.grid(axis='y')
+    plt.tight_layout(pad=0.05) # will change ax dimension, make them bigger since margins are reduced 
+    if result_path is not None:
+        plt.savefig(result_path)       
     plt.show()
