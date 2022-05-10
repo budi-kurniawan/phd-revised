@@ -91,12 +91,13 @@ def draw_error_bars(data_sources, result_path=None):
     plt.legend(loc='upper center')
 
     baseline_width = len(legend_labels) * distance_btw_agents
+    print('baselines:', baselines)
     for i, behaviour in enumerate(behaviours):
         baseline_value = [e for e in baselines if e['behaviour'] == behaviour][0]['value']
-        plt.plot([-baseline_width/2 + x_1[i], baseline_width/2 + x_1[i]], [baseline_value, baseline_value], linewidth=3, 
+        plt.plot([-baseline_width/2 + x_1[i], baseline_width/2 + x_1[i]], [baseline_value, baseline_value], linewidth=2, 
             color=context['baseline_color'], zorder=0.5)
-    plt.xlabel('Blue UAV initial disposition', fontsize=12)
-    plt.ylabel('Average Reward', fontsize=12)
+    plt.xlabel('Blue UAV initial disposition', fontsize=11)
+    plt.ylabel('Average Reward', fontsize=11)
     if 'ylim' in context:
         plt.ylim(context['ylim'])
     plt.grid(axis='y')
