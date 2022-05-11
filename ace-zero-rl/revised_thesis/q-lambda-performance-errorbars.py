@@ -9,7 +9,8 @@ if __name__ == '__main__':
     parent_b = p + '../rl2020_test_results/baseline/'
     parent_r = p + '../rl2020_test_results/'
     parent_q = p + '../rl2020_test_results/ql-so/'
-    context['figsize'] = (6.5, 4)
+    context['figsize'] = (6.5, 3.8)
+    context['ylim'] = (0, .21)
     colors = ['#efffef', '#ccffe0', '#b2ffd0', '#99ffc1', '#00ff64', '#fff9b2', 'orange'] #https://www.w3schools.com/colors/colors_gradient.asp    
     context['palette'] = colors
     result_path = p + './q-lambda-so/ql-performance.pdf'

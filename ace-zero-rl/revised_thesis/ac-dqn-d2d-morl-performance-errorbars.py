@@ -1,10 +1,12 @@
-from rl2020_graph_generator.performance_graph_util import *
-
+from util import *
+import os
+os.system('cls' if os.name == 'nt' else 'clear')
 # gradient color codes: http://www.perbang.dk/rgb/00BABF/
 if __name__ == '__main__':
-    parent = '../rl2020_test_results/'
-    parent_d2dsql = '../rl2020_test_results/d2dsql2/'
-    parent_d2dspl = '../rl2020_test_results/d2dspl/'
+    p = 'ace-zero-rl/revised_thesis/'
+    parent = p + '../rl2020_test_results/'
+    parent_d2dsql = p + '../rl2020_test_results/d2dsql2/'
+    parent_d2dspl = p + '../rl2020_test_results/d2dspl/'
 
     #https://www.w3schools.com/colors/colors_gradient.asp
     colors = ['LightCyan', 'LightSkyBlue', 'MediumBlue', #'Blue',
@@ -12,21 +14,18 @@ if __name__ == '__main__':
               'yellow', 'Turquoise', 'DarkTurquoise', 'LightSeaGreen',
               'LightGreen', 'MediumSpringGreen', 'GreenYellow', 'Green', 'LightGreen', 'MediumSpringGreen', 'GreenYellow', 'Green'] 
     context['palette'] = colors
-    context['figsize'] = (15, 7.5)
-#     context['figsize'] = (30, 19)    
-    context['ylim'] = [0, 1.0]
-    context['legend_num_columns'] = 2
-
-    result_path = './ac-dqn-so/ac-dqn-d2d-morl-performance-boxplot-1.pdf'
+    context['figsize'] = (11.5, 6)
+    context['ylim'] = [0, 0.63]
+    context['legend_num_columns'] = 4
+    context['distance_btw_agents'] = 0.04
+    context['legend_loc'] = 'upper left'
+    
+    result_path = p + './ac-dqn-so/ac-dqn-d2d-morl-performance-errorbars-1.pdf'
     """ ac-004, ac-005, dqn-004 and dqn-005 are excluded because they are the worst among DQN agents """
     data_sources = [
             BehaviourDataSource(label='ac-001-200K', data_parent_path=parent + 'ac-so/ac-001-200000-basic-a'),
             BehaviourDataSource(label='ac-002-200K', data_parent_path=parent + 'ac-so/ac-002-200000-basic-a'),
-#            BehaviourDataSource(label='ac-003-200K', data_parent_path=parent + 'ac-003-200000-basic-a'),
-#             BehaviourDataSource(label='random-agent', data_parent_path=parent + 'random-agent-basic-a'),
             BehaviourDataSource(label='ac-random-200K', data_parent_path=parent + 'ac-so/ac-random-200000-basic-a'),
-#             BehaviourDataSource(label='ac-random-500K', data_parent_path=parent + 'ac-random-500000-basic-a'),
-#             BehaviourDataSource(label='ac-random-1M', data_parent_path=parent + 'ac-random-1000000-basic-a'),
             BehaviourDataSource(label='dqn-001-20K', data_parent_path=parent + 'dqn-so/dqn-001-20000-basic-a', num_trials=10),
             BehaviourDataSource(label='dqn-002-20K', data_parent_path=parent + 'dqn-so/dqn-002-20000-basic-a', num_trials=10),
             BehaviourDataSource(label='dqn-003-20K', data_parent_path=parent + 'dqn-so/dqn-003-20000-basic-a', num_trials=10),
@@ -45,5 +44,5 @@ if __name__ == '__main__':
             BehaviourDataSource(label='mo-ac-random-200K-rb007', data_parent_path=parent + 'ac-mo/ac-mo-random-001-500000-rb016-basic-a'),
             BehaviourDataSource(label='baseline', data_parent_path=parent + 'baseline/baseline-blue-smart-pursuit-agent-basic-a', num_trials=1)
         ]    
-    draw(data_sources, result_path)
+    draw_error_bars(data_sources, result_path)
     

@@ -10,6 +10,8 @@ if __name__ == '__main__':
     colors = ['#efffef', '#ccffe0', '#b2ffd0', '#99ffc1', '#00ff64', '#fff9b2', 'orange'] #https://www.w3schools.com/colors/colors_gradient.asp
     context['palette'] = colors
     context['figsize'] = (6.5, 4)
+    context['ylim'] = (0, .5)
+
     result_path = p + './ac-so/ac-performance-errorbars-1.pdf'
     data_sources = [
         BehaviourDataSource(label='ac-001-200K', data_parent_path=parent + 'ac-001-200000-basic-a'),
@@ -28,6 +30,7 @@ if __name__ == '__main__':
     colors = ['#e5ffef', '#ccffe0', '#b2ffd0', '#99ffc1', '#00ff64', 'salmon', '#fff9b2', '#ffec00', '#ffbb00'] #https://www.w3schools.com/colors/colors_gradient.asp
     context['palette'] = colors
     context['figsize'] = (7, 4.5)
+    context['ylim'] = (0, .55)
     data_sources = [
             BehaviourDataSource(label='ac-001-100K', data_parent_path=parent + 'ac-001-100000-basic-a'),
             BehaviourDataSource(label='ac-002-100K', data_parent_path=parent + 'ac-002-100000-basic-a'),

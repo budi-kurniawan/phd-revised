@@ -9,7 +9,8 @@ from scipy.stats import bootstrap
 
 
 BehaviourDataSource = namedtuple('BehaviourDataSource', 'label data_parent_path num_trials', defaults=[None, None])
-context = {'palette': 'Blues', 'baseline_color': 'red', 'figsize': (15, 5), 'legend_loc' : "upper center"}
+context = {'palette': 'Blues', 'baseline_color': 'red', 'figsize': (15, 5), 'legend_loc' : "upper center",
+            'distance_btw_agents':0.09}
 """ info about the palette: http://seaborn.pydata.org/tutorial/color_palettes.html """
 
 seed = 300_000
@@ -22,8 +23,6 @@ class ScipyBootstrap:
 
     def calculate_mean(self, sample, axis=0):
         self.mean = np.mean(sample, axis=axis)
-        # print('self.mean:', self.mean)
-        # print('len(mean):', len(self.mean))
         return self.mean
 
     def execute_with_errors(self, sample, resample_size, method):
@@ -65,10 +64,9 @@ def draw_error_bars(data_sources, result_path=None):
     # 40 samples (10 for each behaviour) from each source * num_data_sources
 
     x_1 = np.arange(1, 5)
-    distance_btw_agents = 0.09
-    index = 0
+    distance_btw_agents = context['distance_btw_agents']
     colors = context['palette']
-    for label in legend_labels:
+    for index, label in enumerate(legend_labels):
         y = []
         errors = []
         agent_data = [x for x in data if x['label']==label]
@@ -82,16 +80,18 @@ def draw_error_bars(data_sources, result_path=None):
         plt.errorbar(x=x_1, y=y, yerr=errors, color='gray', capsize=3,
             linestyle="None", marker="s", markersize=7, mfc=colors[index], mec="black", label=label)
         x_1 = x_1 + distance_btw_agents
-        index = index + 1
 
     x_ticks = ('defensive', 'head-on', 'neutral', 'offensive')
     # adjust x_1 so it is in the middle
     x_1 = x_1 - (len(legend_labels) + 1)* distance_btw_agents / 2
     plt.xticks(x_1, x_ticks, rotation=0)
-    plt.legend(loc='upper center')
+
+    if 'legend_loc' in context:
+        plt.legend(loc=context['legend_loc'], ncol=context['legend_num_columns'])
+    else:
+        plt.legend(loc='upper center', ncol=context['legend_num_columns'])
 
     baseline_width = len(legend_labels) * distance_btw_agents
-    print('baselines:', baselines)
     for i, behaviour in enumerate(behaviours):
         baseline_value = [e for e in baselines if e['behaviour'] == behaviour][0]['value']
         plt.plot([-baseline_width/2 + x_1[i], baseline_width/2 + x_1[i]], [baseline_value, baseline_value], linewidth=2, 
