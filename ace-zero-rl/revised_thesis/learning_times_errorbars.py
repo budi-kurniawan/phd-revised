@@ -88,8 +88,7 @@ def draw(data_sources, result_path):
     if result_path is not None:
         plt.savefig(result_path)     
     plt.show()
-    return
-    generate_latex_table(column_names, data, result_path)
+    # generate_latex_table(column_names, data, result_path)
 
 if __name__ == '__main__':
     p = 'ace-zero-rl/revised_thesis/'
